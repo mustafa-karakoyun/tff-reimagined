@@ -43,7 +43,7 @@ const HeroCarousel = () => {
   };
 
   return (
-    <div className="relative h-[500px] md:h-[600px] overflow-hidden bg-tff-gray-dark">
+    <div className="relative h-[300px] md:h-[350px] overflow-hidden bg-tff-gray-dark border-b-2 border-primary">
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -56,20 +56,20 @@ const HeroCarousel = () => {
             alt={slide.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
           
           <div className="absolute inset-0 container mx-auto px-4 flex items-center">
-            <div className="max-w-2xl text-white animate-fade-in">
-              <span className="hero-badge mb-4 inline-block">
+            <div className="max-w-xl text-white">
+              <span className="hero-badge mb-2 inline-block">
                 {slide.badge}
               </span>
-              <h1 className="font-display text-4xl md:text-6xl mb-4 text-balance">
+              <h1 className="font-display text-2xl md:text-3xl mb-2 font-bold leading-tight">
                 {slide.title}
               </h1>
-              <p className="text-lg md:text-xl text-white/90 mb-6">
+              <p className="text-sm md:text-base text-white/90 mb-3">
                 {slide.description}
               </p>
-              <Button size="lg" className="bg-primary hover:bg-primary-hover font-semibold">
+              <Button size="sm" className="bg-white text-primary hover:bg-white/90 font-semibold text-xs">
                 Detayları İncele
               </Button>
             </div>
@@ -82,28 +82,28 @@ const HeroCarousel = () => {
         variant="ghost"
         size="icon"
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full"
+        className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full w-8 h-8"
       >
-        <ChevronLeft className="w-6 h-6" />
+        <ChevronLeft className="w-4 h-4" />
       </Button>
       <Button
         variant="ghost"
         size="icon"
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full"
+        className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full w-8 h-8"
       >
-        <ChevronRight className="w-6 h-6" />
+        <ChevronRight className="w-4 h-4" />
       </Button>
 
       {/* Indicators */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-2 h-2 rounded-full transition-all ${
+            className={`w-1.5 h-1.5 rounded-full transition-all ${
               index === currentSlide 
-                ? "bg-white w-8" 
+                ? "bg-white w-6" 
                 : "bg-white/50 hover:bg-white/75"
             }`}
           />

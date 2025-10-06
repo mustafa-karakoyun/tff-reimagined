@@ -8,45 +8,45 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* TFF Brand Colors */
-    --background: 0 0% 98%;
-    --foreground: 0 0% 15%;
+    /* TFF Official Colors - more traditional */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 15%;
+    --card-foreground: 0 0% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 15%;
+    --popover-foreground: 0 0% 20%;
 
-    /* Turkish Red as Primary */
-    --primary: 356 85% 47%;
+    /* TFF Red #E10600 */
+    --primary: 356 100% 44%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 356 85% 42%;
+    --primary-hover: 356 100% 38%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 15%;
+    --secondary: 0 0% 98%;
+    --secondary-foreground: 0 0% 20%;
 
-    --muted: 0 0% 94%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 50%;
 
-    --accent: 45 100% 51%;
-    --accent-foreground: 0 0% 15%;
+    --accent: 45 100% 50%;
+    --accent-foreground: 0 0% 20%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 356 85% 47%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 356 100% 44%;
 
-    --radius: 0.5rem;
+    --radius: 0.25rem;
 
     /* Custom design tokens */
-    --tff-red: 356 85% 47%;
-    --tff-red-dark: 356 85% 42%;
-    --tff-gold: 45 100% 51%;
-    --tff-gray: 0 0% 96%;
-    --tff-gray-dark: 0 0% 25%;
+    --tff-red: 356 100% 44%;
+    --tff-red-dark: 356 100% 38%;
+    --tff-gold: 45 100% 50%;
+    --tff-gray: 0 0% 98%;
+    --tff-gray-dark: 0 0% 20%;
 
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
@@ -106,23 +106,31 @@ All colors MUST be HSL.
 
 @layer components {
   .news-card {
-    @apply bg-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
+    @apply bg-card border border-border overflow-hidden hover:shadow-sm transition-shadow duration-200;
+  }
+
+  .news-card-compact {
+    @apply border-b border-border pb-3 mb-3 hover:bg-muted/30 transition-colors duration-200;
   }
 
   .match-card {
-    @apply bg-card rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow duration-200;
+    @apply bg-card border border-border p-3;
   }
 
   .nav-link {
-    @apply text-foreground/80 hover:text-primary transition-colors duration-200 font-medium;
+    @apply text-foreground hover:text-primary transition-colors duration-200 text-sm font-medium;
   }
 
   .hero-badge {
-    @apply bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold;
+    @apply bg-primary text-primary-foreground px-2 py-0.5 text-xs font-semibold uppercase;
   }
 
   .sponsor-logo {
-    @apply grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100;
+    @apply grayscale hover:grayscale-0 transition-all duration-200 opacity-70 hover:opacity-100;
+  }
+
+  .sidebar-section {
+    @apply bg-muted border border-border p-4 mb-4;
   }
 }
 

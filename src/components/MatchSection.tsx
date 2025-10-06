@@ -44,80 +44,82 @@ const MatchSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-secondary">
-      <div className="container mx-auto px-4">
+    <section className="py-6 bg-background">
+      <div className="space-y-4">
+        <h2 className="font-display text-lg font-bold border-b-2 border-primary pb-2">
+          Maçlar ve Puan Durumu
+        </h2>
         <Tabs defaultValue="fixtures" className="w-full">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
-            <TabsTrigger value="fixtures">Maçlar</TabsTrigger>
-            <TabsTrigger value="standings">Puan Durumu</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-2 mb-4">
+            <TabsTrigger value="fixtures" className="text-xs">Maçlar</TabsTrigger>
+            <TabsTrigger value="standings" className="text-xs">Puan Durumu</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="fixtures" className="space-y-4">
+          <TabsContent value="fixtures" className="space-y-2">
             {matches.map((match, index) => (
               <div key={index} className="match-card">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-sm font-semibold text-primary">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-semibold text-primary">
                     {match.competition}
                   </span>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Calendar className="w-4 h-4" />
-                    <span>{match.date} • {match.time}</span>
+                  <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                    <Calendar className="w-3 h-3" />
+                    <span>{match.date}</span>
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between">
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-semibold">{match.homeTeam}</span>
-                      <span className="text-2xl font-bold">
-                        {match.homeScore !== null ? match.homeScore : "-"}
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="font-semibold">{match.awayTeam}</span>
-                      <span className="text-2xl font-bold">
-                        {match.awayScore !== null ? match.awayScore : "-"}
-                      </span>
-                    </div>
+                <div className="space-y-1">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="font-semibold">{match.homeTeam}</span>
+                    <span className="text-xl font-bold">
+                      {match.homeScore !== null ? match.homeScore : "-"}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="font-semibold">{match.awayTeam}</span>
+                    <span className="text-xl font-bold">
+                      {match.awayScore !== null ? match.awayScore : "-"}
+                    </span>
                   </div>
                 </div>
 
-                <div className="mt-3 pt-3 border-t border-border">
+                <div className="mt-2 pt-2 border-t border-border flex items-center justify-between">
                   <span className={`text-xs font-semibold ${
                     match.status === "Bitti" ? "text-muted-foreground" : "text-primary"
                   }`}>
                     {match.status}
                   </span>
+                  <span className="text-xs text-muted-foreground">{match.time}</span>
                 </div>
               </div>
             ))}
           </TabsContent>
 
           <TabsContent value="standings">
-            <div className="bg-card rounded-lg shadow-md overflow-hidden">
+            <div className="bg-card border border-border overflow-hidden">
               <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead className="bg-secondary">
+                <table className="w-full text-xs">
+                  <thead className="bg-muted">
                     <tr>
-                      <th className="px-4 py-3 text-left text-sm font-semibold">#</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold">Takım</th>
-                      <th className="px-4 py-3 text-center text-sm font-semibold">O</th>
-                      <th className="px-4 py-3 text-center text-sm font-semibold">G</th>
-                      <th className="px-4 py-3 text-center text-sm font-semibold">B</th>
-                      <th className="px-4 py-3 text-center text-sm font-semibold">M</th>
-                      <th className="px-4 py-3 text-center text-sm font-semibold">P</th>
+                      <th className="px-2 py-2 text-left font-semibold">#</th>
+                      <th className="px-2 py-2 text-left font-semibold">Takım</th>
+                      <th className="px-2 py-2 text-center font-semibold">O</th>
+                      <th className="px-2 py-2 text-center font-semibold">G</th>
+                      <th className="px-2 py-2 text-center font-semibold">B</th>
+                      <th className="px-2 py-2 text-center font-semibold">M</th>
+                      <th className="px-2 py-2 text-center font-semibold">P</th>
                     </tr>
                   </thead>
                   <tbody>
                     {standings.map((team) => (
-                      <tr key={team.position} className="border-b border-border hover:bg-secondary/50 transition-colors">
-                        <td className="px-4 py-3 font-semibold">{team.position}</td>
-                        <td className="px-4 py-3 font-semibold">{team.team}</td>
-                        <td className="px-4 py-3 text-center">{team.played}</td>
-                        <td className="px-4 py-3 text-center">{team.won}</td>
-                        <td className="px-4 py-3 text-center">{team.drawn}</td>
-                        <td className="px-4 py-3 text-center">{team.lost}</td>
-                        <td className="px-4 py-3 text-center font-bold text-primary">{team.points}</td>
+                      <tr key={team.position} className="border-b border-border hover:bg-muted/30 transition-colors">
+                        <td className="px-2 py-2 font-semibold">{team.position}</td>
+                        <td className="px-2 py-2 font-semibold">{team.team}</td>
+                        <td className="px-2 py-2 text-center">{team.played}</td>
+                        <td className="px-2 py-2 text-center">{team.won}</td>
+                        <td className="px-2 py-2 text-center">{team.drawn}</td>
+                        <td className="px-2 py-2 text-center">{team.lost}</td>
+                        <td className="px-2 py-2 text-center font-bold text-primary">{team.points}</td>
                       </tr>
                     ))}
                   </tbody>

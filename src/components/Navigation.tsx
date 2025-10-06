@@ -7,41 +7,41 @@ const Navigation = () => {
 
   const navItems = [
     "Ana Sayfa",
+    "TFF",
     "Milli Takımlar",
     "Ligler",
     "Kupalar",
-    "Hakemler",
-    "Haberler",
-    "Medya",
-    "Hakkımızda"
+    "Kadın Futbolu",
+    "FGD",
+    "Bilgi Bankası"
   ];
 
   return (
-    <nav className="bg-card shadow-md sticky top-0 z-50">
+    <nav className="bg-card border-b border-border sticky top-0 z-50">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-3">
-            <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center font-display text-2xl font-bold text-primary-foreground">
+          <div className="flex items-center gap-2">
+            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center font-display text-xl font-bold text-primary-foreground">
               TFF
             </div>
             <div className="hidden md:block">
-              <div className="font-display text-xl font-bold text-foreground">
+              <div className="font-display text-base font-bold text-foreground leading-tight">
                 Türkiye Futbol
               </div>
-              <div className="font-display text-sm font-semibold text-muted-foreground">
+              <div className="font-display text-xs font-semibold text-muted-foreground">
                 Federasyonu
               </div>
             </div>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-0.5">
             {navItems.map((item) => (
               <a
                 key={item}
                 href="#"
-                className="nav-link px-4 py-2 rounded-md hover:bg-secondary transition-colors"
+                className="nav-link px-3 py-2 hover:bg-muted transition-colors"
               >
                 {item}
               </a>
